@@ -1,3 +1,4 @@
+.gitignore
 examples/runs
 examples/ft
 examples/ft_new
@@ -11,3 +12,9 @@ src/transformers/data/metrics/__pycache__
 src/transformers/data/processors/__pycache__
 src/transformers/__pycache__
 src/transformers.egg-info
+motif/result
+motif/__pycache__
+examples/sample_data/ft/prom-core/6/cached_dev_6_81_dnaprom
+examples/sample_data/ft/prom-core/6/cached_dev_6-new-12w-0_75_dnaprom
+examples/sample_data/ft/prom-core/6/cached_dev_75_dnaprom
+examples/sample_data/ft/prom-core/6/cached_train_6-new-12w-0_75_dnaprom
