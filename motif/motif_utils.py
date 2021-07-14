@@ -211,7 +211,7 @@ def motifs_hypergeom_test(pos_seqs, neg_seqs, motifs, p_adjust = 'fdr_bh', alpha
         pvals = list(multi.multipletests(pvals,alpha=alpha,method=p_adjust)[1])
     return pvals
 
-def filter_motifs(pos_seqs, neg_seqs, motifs, cutoff=0.05, return_idx=False, **kwargs):
+def filter_motifs(pos_seqs, neg_seqs, motifs, cutoff=0.05, **kwargs):
     """
     Wrapper function for returning the actual motifs that passed the hypergeometric test.
     
@@ -231,6 +231,7 @@ def filter_motifs(pos_seqs, neg_seqs, motifs, cutoff=0.05, return_idx=False, **k
 
     """ 
     pvals = motifs_hypergeom_test(pos_seqs, neg_seqs, motifs, **kwargs)
+    return_idx = kwargs['return_idx']
     if return_idx:
         return [i for i, pval in enumerate(pvals) if pval < cutoff]
     else:
@@ -501,6 +502,7 @@ def motif_analysis(pos_seqs,
     return_idx = False
     if 'return_idx' in kwargs:
         return_idx = kwargs['return_idx']
+        del kwargs['return_idx']
     
     if verbose:
         print("* Filtering motifs by hypergeometric test")
