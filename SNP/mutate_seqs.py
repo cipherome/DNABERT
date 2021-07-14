@@ -75,7 +75,8 @@ def main():
     
     mutated_dev = {'index':[],'seq':[]}
     
-    dev = pd.read_csv(args.seq_file,sep='\t',header=None)
+    dev = pd.read_csv(args.seq_file,sep='\t')#,header=None)
+    dev=dev.reset_index()
     dev.columns = ['sequence','label']
     dev['seq'] = dev['sequence'].apply(utils.kmer2seq)
     
